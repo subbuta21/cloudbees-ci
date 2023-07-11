@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  parameters {
+    string(name: 'MY_STRING_PARAM', defaultValue: '', description: 'Enter a string value')
+    choice(name: 'MY_ENV_PARAM', choices: ['development', 'production', 'staging'], description: 'Select an environment')
+  }
+  stages {
+    stage('Example Stage') {
+      steps {
+        script {
+          def myStringParam = params.MY_STRING_PARAM
+          def myEnvParam = params.MY_ENV_PARAM
+          // Use the parameters in your pipeline steps
+          echo "String Parameter: ${myStringParam}"
+          echo "Environment Parameter: ${myEnvParam}"
+        }
+      }
+    }
+  }
+}

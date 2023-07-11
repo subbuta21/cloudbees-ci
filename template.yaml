@@ -1,0 +1,9 @@
+parameters:
+  - name: MY_STRING_PARAM
+    type: string
+  - name: MY_ENV_PARAM
+    type: choice
+    choices:
+      - development
+      - production
+      - staging
